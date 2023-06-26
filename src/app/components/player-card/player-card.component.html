@@ -1,0 +1,14 @@
+<div class="card center" *ngIf="player">
+  <div class="card-body text-center">
+      <h5 class="card-title">{{ player.name }}</h5>
+      <app-progress-bar [pv]="player.pv" [pvMax]="player.pvMax" bgType="bg-success" faType="fa-heart" barName=": pv"></app-progress-bar>
+      <app-progress-bar [pv]="player.mana" [pvMax]="player.manaMax" bgType="bg-primary" faType="fa-bolt" barName=": mana"></app-progress-bar>
+      <span class="badge badge-danger ml-2 " id="degatSpanJ1"></span>
+      <div class="row">
+        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
+        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
+        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
+        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
+      </div>
+  </div>
+</div>
