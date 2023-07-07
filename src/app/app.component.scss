@@ -1,3 +1,15 @@
+@font-face {
+  font-family: Simpson;
+  src: url('../assets/Homer_Simpson_Revised.ttf');
+}
+
+*{
+  font-family: Simpson;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
 .App {
   text-align: center;
   background-color: #232323;
@@ -43,7 +55,7 @@
   color: rgb(255, 0, 0);
 }
 
-.manaShow {
+.powerShow {
   color: #9fddfa;
 }
 

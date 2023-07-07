@@ -9,5 +9,5 @@ export const initialMonster: IMonster = {
   id: 1, 
   name: 'Monster', 
   pvMax: 1000, 
-  pv: 700, 
+  pv: 1000, 
 };

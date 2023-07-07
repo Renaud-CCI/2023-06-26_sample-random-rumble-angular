@@ -1,31 +1,55 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { GameState, gameReducer } from 'src/app/reducers/game.reducer';
-import { hitMonster } from 'src/app/actions/player.action';
-import { MonsterAttackPopUpComponent } from 'src/app/components/monster-attack-popup/monster-attack-pop-up.component';
+import { Capacity } from 'src/app/models/capacity.model';
+import { IPlayer } from 'src/app/models/player.model';
+
 
 @Component({
   selector: 'app-button-capacity',
   templateUrl: './button-capacity.component.html',
   styleUrls: ['./button-capacity.component.scss']
 })
+
+
 export class ButtonCapacityComponent {
-  @Input() player?: any;
-  // popUpDisplay: boolean = false;
-  
+  @Input() capacity?: Capacity;
+  damage?: number;
+  @Input() player?: IPlayer;
+  @Input() clickable : boolean= true;
+  @Output() buttonClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Input() btnColor?: string;
+
   constructor(private store: Store<{game: GameState}>) {
-    
   }
 
 
-  onClick() {
-    const damage = 50;
-    const playerId = this.player.id;
-    
-    this.store.dispatch(hitMonster({damage}));
-    console.log('joueur', this.player);
+  ngOnInit(){
+    // console.log('ppl button-capacity', this.capacity)
+    this.store.select(state => state.game).subscribe((game: GameState) => { 
+      if(this.player && this.capacity){
+        this.damage = Math.abs(this.capacity.damage);
+        let variable:string = `this.player.${this.capacity.cost.name}`;
+        if (game.turnArray.includes(this.player.id) || this.player.pv<=0 || this.capacity.cost.value>eval(variable)){
+          this.btnColor = 'btn-secondary';
+          this.clickable = false;
+        } else {
+          this.btnColor = this.capacity.btnBootstrapColor
+          this.clickable = true;
+        }
 
-    // Utiliser EventEmitter pour envoyer l'event au playerCard
+      }
+    })
+  }
+
+  onClick() {
+    if (this.player){
+      const eventData = {
+        player: this.player,
+        capacity: this.capacity
+      };
+      this.buttonClicked.emit(eventData);
+    }
   }
 }
 

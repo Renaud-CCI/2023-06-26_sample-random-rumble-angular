@@ -1,0 +1,19 @@
+<section id="introModal" *ngIf="introPlayers && introPopupDisplay">
+  <div class="card center introPopup">
+
+    <div class="card-body text-center">  
+      <h1>SIMPSONS FIGHT</h1>    
+      <img id="VSimg" src="./assets/vintage-vs.png" alt="versus">
+      <img id="monsterimg" src="./assets/Kang.png" alt="Kang">
+      <img id="player1img" src="./assets/{{introPlayers[0].name}}.png" alt="{{introPlayers[0].name}}">
+      <img id="player2img" src="./assets/{{introPlayers[1].name}}.png" alt="{{introPlayers[1].name}}">
+      <img id="player3img" src="./assets/{{introPlayers[2].name}}.png" alt="{{introPlayers[2].name}}">
+      <img id="player4img" src="./assets/{{introPlayers[3].name}}.png" alt="{{introPlayers[3].name}}">
+    </div>
+
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-danger btn-lg mb-5 mx-auto" (click)="setIntroPopupFalse()">Jouer !</button>
+    </div>
+
+  </div>
+</section>

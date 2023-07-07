@@ -1,0 +1,15 @@
+<section *ngIf="gameoverPopupDisplay">
+  <div class="card center gameoverPopup">
+    <div class="card-body text-center container">
+      <h3 class="card-title">
+          <span class="skull1">💀</span>
+          <span class="title">GAME OVER</span>
+          <span class="skull2">💀</span>
+        </h3>
+        
+      
+      <img src="./assets/cemetery.png" alt="cimetière">
+    </div>
+    <button class="btn btn-primary btn-lg my-5 mx-auto" (click)="reloadPage()">REJOUER</button>
+  </div>
+</section>

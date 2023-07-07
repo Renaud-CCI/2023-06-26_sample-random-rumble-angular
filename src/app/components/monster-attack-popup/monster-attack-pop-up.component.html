@@ -1,8 +1,8 @@
-<section *ngIf="popUpDisplay">
+<section *ngIf="popUpDisplay && attackedPlayer">
   <div class="card center monsterAttackPopup">
     <div class="card-body text-center">
-      <h3 class="card-title">LE MONSTRE RIPOSTE !!</h3>
-      <img src="./assets/monstreVener.png" alt="monstre énervé">
+      <h3 class="card-title">KANG RIPOSTE !!<br><span *ngIf="attackedPlayer?.name">{{ attackedPlayer.name }} s'en prend une et perd {{hitBackDamage}} PV !</span></h3>
+      <img src="./assets/VenerKang.png" alt="monstre énervé">
     </div>
   </div>
 </section>

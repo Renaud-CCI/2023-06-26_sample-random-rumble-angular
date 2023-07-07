@@ -1,0 +1,37 @@
+.actionsPopup{
+  color: white;
+  background-color: rgba(255, 0, 0, 0.74);
+  width : 50vw;
+  min-height: 50vh;
+  position:fixed;
+  left:25%;
+  top:10%;
+  z-index: 50;
+
+  h3 {
+    font-size: 50px;
+    margin-top: 5%;
+    margin-bottom: 30px;
+  }
+  
+  img{
+    min-width : 10%;
+    max-height : 40vh;
+    right : 0;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .actionsPopup {
+    width: 90%;
+    height: 90%;
+    left:5%;
+    top:5%;
+
+    h3 {
+      font-size: 40px;
+      margin-top: 10%;
+    }
+  }
+
+}

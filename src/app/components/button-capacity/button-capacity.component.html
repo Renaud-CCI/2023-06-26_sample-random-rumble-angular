@@ -1,12 +1,10 @@
-<button type="button"
-      class="btn btn-danger material-tooltip-main w-100"
+<button *ngIf="player && capacity" [disabled]="!clickable" type="button"
+      class="btn {{btnColor}} material-tooltip-main w-100 text-white"
       (click)="onClick()"
->
-      hit
-      <i class="fas fa-bomb"></i> 5
-      <i class="fas fa-fire-alt"></i> - 5
+>     
+
+      <span>{{capacity.name}}</span>
+      <i >{{capacity.Icon}}</i> {{damage}}
+      <i >{{capacity.cost.Icon}}</i> -{{capacity.cost.value}}
 </button>
 
-<!-- <ng-container *ngIf="popUpDisplay">
-      <app-monster-attack-pop-up></app-monster-attack-pop-up>
-</ng-container> -->

@@ -9,7 +9,7 @@ export class ProgressBarComponent {
   @Input() pv?: number;
   @Input() pvMax?: number;
   @Input() bgType?: string;
-  @Input() faType?: string;
+  @Input() icon?: string;
   @Input() barName?: string;
 
   constructor() { }

@@ -1,0 +1,17 @@
+<section *ngIf="actionsPopupDisplay && actionsPlayer && actionsPopupType">
+  <div class="card center actionsPopup">
+    <div class="card-body text-center">
+
+      <h3 *ngIf="actionsPopupType == 'attack'" class="card-title">{{ actionsPlayer.name }} inflige {{actionsDamage}} dégats à Kang et perd {{actionsCost}} {{actionsLost}}</h3>
+      <h3 *ngIf="actionsPopupType == 'all'" class="card-title">{{ actionsPlayer.name }} fait gagner {{actionsDamage}} {{actionsGain}} à tous et perd {{actionsCost}} {{actionsLost}}</h3>
+      <h3 *ngIf="actionsPopupType == 'single'" class="card-title">{{ actionsPlayer.name }} gagne {{actionsDamage}} {{actionsGain}} et perd {{actionsCost}} {{actionsLost}}</h3>
+      <h3 *ngIf="actionsPopupType == 'lisa'" class="card-title">{{ actionsPlayer.name }} donne {{actionsDamage}} {{actionsGain}} à Lisa et perd {{actionsCost}} {{actionsLost}}</h3>
+      
+      <img class="my-3" src="./assets/{{actionsPlayer.name}}.png" alt="personnage jouant">
+    </div>
+  </div>
+  
+
+</section>
+
+

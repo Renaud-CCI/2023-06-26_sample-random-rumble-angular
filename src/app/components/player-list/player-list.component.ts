@@ -16,14 +16,22 @@ export class PlayerListComponent implements OnInit {
   // Récupérons le store grace a l'injection de dépendance
   constructor(private store: Store<{ game: GameState }>) { 
   } 
+
+  reloadPage() {
+    window.location.reload();
+  }
   
   // Lorsque le composant est initialisé la méthode ngOnInit se lance et initialise la propriété player de notre composant
   //Ici nous récupérons le state player pour initialiser la propriété player de notre composants ce qui nous permet de l'utiliser dans player.component.html
-  ngOnInit(): void { 
-    this.store.select(state => state.game).subscribe((game: GameState) => { 
-      this.players = game.players; 
+  ngOnInit(): void {
+    this.store.select(state => state.game).subscribe((game: GameState) => {
+      console.log('store : ', game)
+      this.players = game.players;
       // un petit console log pour s'assurer de ce qu'on fait 
-      console.log('player-listComponent', game.players); 
-    }); 
-  } 
+      // console.log('player-listComponent ppl', game.players); 
+      
+    });
+  }
+
 }
+

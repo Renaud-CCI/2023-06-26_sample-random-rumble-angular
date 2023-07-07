@@ -1,0 +1,40 @@
+.monsterDeadPopup{
+  color: white;
+  background-color: rgba(40, 187, 10, 0.74);
+  width : 50vw;
+  position:fixed;
+  left:25%;
+  top:10%;
+  z-index: 50;
+
+  h3 {
+    font-size: 50px;
+    margin-top: 5%;
+    margin-bottom: 30px;
+  }
+  
+  img{
+    min-width : 10%;
+    max-height : 40vh;
+    right : 0;
+  }
+
+  button{
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .monsterDeadPopup {
+    width: 90%;
+    height: 90%;
+    left:5%;
+    top:5%;
+
+    h3 {
+      font-size: 40px;
+      margin-top: 10%;
+    }
+  }
+
+}

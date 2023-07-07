@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IPlayer } from 'src/app/models/player.model';
+import { GameState } from 'src/app/reducers/game.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-monster-attack-pop-up',
@@ -9,17 +12,18 @@ import { Component, Input } from '@angular/core';
 export class MonsterAttackPopUpComponent {
 
   @Input() popUpDisplay?:boolean;
+  @Input() attackedPlayer?:IPlayer;
+  @Input() hitBackDamage?:number;
   
-  constructor() {
-    console.log("displayPopup", this.popUpDisplay);
+  constructor(private store: Store<{ game: GameState }>) {
   }
-  
-  // test(value:boolean){
-  //   if(this.popUpDisplay){
-  //   }
-  //   console.log('avant redefinition', this.popUpDisplay)
-  //   this.popUpDisplay = value;
-  //   console.log('apres redefinition', this.popUpDisplay)
-  // }
+
+  ngOnInit():void{
+    this.store.select(state => state.game).subscribe((game: GameState) => { 
+      
+      // console.log('ppl popup', this.attackedPlayer);
+    }
+    )};
+
 
 }

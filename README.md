@@ -21,8 +21,8 @@ Premièrement nous allons créer les différents Models et States de Ngrx :
       name: string; 
       pv: number; 
       pvMax: number; 
-      mana: number; 
-      manaMax: number; 
+      power: number; 
+      powerMax: number; 
     } 
 
     // Le state initial contiendra nos 4 joueurs
@@ -38,16 +38,16 @@ Premièrement nous allons créer les différents Models et States de Ngrx :
       name: string; 
       pv: number; 
       pvMax: number; 
-      mana: number; 
-      manaMax: number; 
+      power: number; 
+      powerMax: number; 
       
-      constructor(id: number, name: string, pv: number, pvMax: number, mana: number, manaMax: number) { 
+      constructor(id: number, name: string, pv: number, pvMax: number, power: number, powerMax: number) { 
         this.id = id; 
         this.name = name; 
         this.pv = pv; 
         this.pvMax = pvMax; 
-        this.mana = mana; 
-        this.manaMax = manaMax; 
+        this.power = power; 
+        this.powerMax = powerMax; 
       } 
     } 
   ```
@@ -241,7 +241,7 @@ Nous allons utiliser un sélecteur pour souscrire au state qui nous intéresse.
         pv: 800, 
       }, 
       players: [
-         {id: 1, name: "John", pv: 100, pvMax: 100, mana: 30, manaMax: 30 },
+         {id: 1, name: "John", pv: 100, pvMax: 100, power: 30, powerMax: 30 },
          ...
       ]
     }; 
@@ -303,12 +303,12 @@ Nous allons utiliser un sélecteur pour souscrire au state qui nous intéresse.
   - représenter cette fonctionnalité en changeant le background de la carte du joueur et en rendant les boutons non clickable.
 ## Capacité avancé 😱
   - Chaque joueur reçoit 4 capacités différentes.
-  - Une des capacités doit être un sort de soin qui coûte autant de mana que de pv restauré. 
-  - Une des capacités doit rendre du mana, le coût de cette capacité se manifeste par la perte de point de vie par le joueur. 
+  - Une des capacités doit être un sort de soin qui coûte autant de power que de pv restauré. 
+  - Une des capacités doit rendre du power, le coût de cette capacité se manifeste par la perte de point de vie par le joueur. 
   - Une des capacités doit permettre au player de se proteger des attaques du monstre pendant 2 tours
 
-## Gestion de la Mana 😱
-  - Si un joueur n'a pas la mana suffisante pour lancer un sort, le bouton devient bleue et ne peut plus être utilisé. 
+## Gestion de la power 😱
+  - Si un joueur n'a pas la power suffisante pour lancer un sort, le bouton devient bleue et ne peut plus être utilisé. 
 
 ## Animation visuelle 😱
   - Lorsqu'un joueur perd des pv, déclencher une animation visuelle

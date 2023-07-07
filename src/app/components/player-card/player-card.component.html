@@ -1,14 +1,42 @@
-<div class="card center" *ngIf="player">
-  <div class="card-body text-center">
+<div class="card center my-1" *ngIf="player">
+  <div class="card-body text-center {{ bgDisplay }}">
+
+      <img *ngIf="player.pv > 0" src="./assets/{{player.name}}.png" alt="{{player.name}} photo">
+      <img *ngIf="player.pv <= 0" src="./assets/{{player.name}}IsDead.png" alt="dead {{player.name}} photo">
+
       <h5 class="card-title">{{ player.name }}</h5>
-      <app-progress-bar [pv]="player.pv" [pvMax]="player.pvMax" bgType="bg-success" faType="fa-heart" barName=": pv"></app-progress-bar>
-      <app-progress-bar [pv]="player.mana" [pvMax]="player.manaMax" bgType="bg-primary" faType="fa-bolt" barName=": mana"></app-progress-bar>
+
+      <app-progress-bar [pv]="player.pv" [pvMax]="player.pvMax" bgType="bg-success" icon="💗" barName=" : pv"></app-progress-bar>
+      <app-progress-bar [pv]="player.power" [pvMax]="player.powerMax" bgType="bg-primary" icon="💪" barName=" : force"></app-progress-bar>
+
       <span class="badge badge-danger ml-2 " id="degatSpanJ1"></span>
+
       <div class="row">
-        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
-        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
-        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
-        <app-button-capacity class="my-1 w-100" [player]="player"></app-button-capacity>
+
+        <app-button-capacity *ngFor="let capacity of player.capacities" class="my-1 w-100" [capacity]="capacity" [btnColor]="btnColor" [player]="player" (buttonClicked)="onButtonClicked($event)"></app-button-capacity>
+        
       </div>
   </div>
 </div>
+
+
+<app-actions-popup 
+  [actionsPopupDisplay]=actionsPopupDisplay 
+  [actionsPopupType]=actionsPopupType 
+  [actionsPlayer]=actionsPlayer 
+  [actionsDamage]=actionsDamage 
+  [actionsCost]=actionsCost 
+  [actionsGain]=actionsGain 
+  [actionsLost]=actionsLost 
+></app-actions-popup>
+
+<app-gameover-popup
+[gameoverPopupDisplay]=gameoverPopupDisplay
+></app-gameover-popup>
+
+<app-intro-popup 
+[introPopupDisplay]=introPopupDisplay 
+[introPlayers]=introPlayers
+(buttonClicked)="onIntroButtonClicked($event)"
+></app-intro-popup>
+

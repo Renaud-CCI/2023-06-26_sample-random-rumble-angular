@@ -7,14 +7,17 @@
             <div class="row"> 
               <div class="col"> 
                 <span class="badge badge-danger ml-2" id="degatSpanMonster"></span> 
-                <img class="img-fluid" src="http://res.publicdomainfiles.com/pdf_view/67/13925387417373.png" width="150px" alt="monster" /> 
+                <!-- <img class="img-fluid" src="http://res.publicdomainfiles.com/pdf_view/67/13925387417373.png" width="150px" alt="monster" /> -->
+                <img *ngIf="monster.pv > 0" class="monsterImg my-2" src="./assets/Kang.png" alt="Kang">
+                <img *ngIf="monster.pv <= 0" class="monsterImg my-2" src="./assets/KangIsDead.png" alt="Kang">
               </div> 
             </div> 
           </div> 
-          <app-progress-bar [pv]="monster.pv" [pvMax]="monster.pvMax" bgType="bg-primary" faType="fa-heart" barName=": pv"></app-progress-bar> 
+          <app-progress-bar [pv]="monster.pv" [pvMax]="monster.pvMax" bgType="bg-info" icon="💗" barName=": pv"></app-progress-bar> 
         </div> 
       </div> 
     </div> 
   </div> 
-  <app-monster-attack-pop-up [popUpDisplay]=displayPopup></app-monster-attack-pop-up>
+  <app-monster-attack-pop-up [popUpDisplay]=displayPopup [attackedPlayer]=attackedPlayer [hitBackDamage]=hitBackDamage></app-monster-attack-pop-up>
+  <app-monster-dead-popup [deadPopUpDisplay]=deadDisplayPopup></app-monster-dead-popup>
 </section>
